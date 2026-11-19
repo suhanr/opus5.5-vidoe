@@ -1,5 +1,6 @@
 // "The Last Time" — motion graphics renderer (Canvas 2D, deterministic by time)
 'use strict';
+const HOOK_BEATS = [0.2, 1.25, 2.3];
 const W = 1080, H = 1920;
 const TL = window.TIMELINE;
 const L = {}; TL.lines.forEach(l => (L[l.id] = l));
@@ -230,7 +231,7 @@ function scribble(g, t, t0, x, y, text, tx, ty, color = C.cream) {
 // ---------------------------------------------------------------- scenes
 function sHook(g, t) {
   g.fillStyle = C.ink; g.fillRect(0, 0, W, H);
-  const beats = [0.0, 1.05, 2.1];
+  const beats = HOOK_BEATS;
   let pulse = 0;
   beats.forEach(b => { const d = t - b; if (d >= 0) pulse += Math.exp(-d * 7) + 0.6 * Math.exp(-Math.max(0, d - 0.26) * 7) * (d > 0.26); });
   const r = 18 + pulse * 10;
@@ -625,7 +626,7 @@ function sHug(g, t) {
 function sEnd(g, t) {
   const e1 = L.end1, e2 = L.end2;
   const tCut = e2.start - 0.06;
-  g.fillStyle = '#07060E'; g.fillRect(0, 0, W, H);
+  g.fillStyle = C.ink; g.fillRect(0, 0, W, H);
   if (t < tCut) {
     const k = seg(t, e1.start - 0.3, tCut);
     glow(g, 540, 700, 700 * (1 - k * 0.6), 'rgba(255,150,100,0.35)', 1 - k * 0.3);
@@ -646,14 +647,18 @@ function sEnd(g, t) {
     // end card
     const tf = e2.end + 0.7;
     const k = eo(seg(t, tf, tf + 1.0));
+    const m = eio(seg(t, TL.duration - 0.85, TL.duration));      // morph back to the opening frame
     if (k > 0) {
-      const beat = [tf + 2.2, tf + 3.25].reduce((s, b) => s + (t > b ? Math.exp(-(t - b) * 7) : 0), 0);
-      glow(g, 540, 640, (260 + beat * 90) * k, 'rgba(255,170,90,0.6)', 0.6 + beat * 0.4);
-      heart(g, 540, 650, (90 + beat * 20) * eback(seg(t, tf, tf + 0.6)), C.rose);
-      g.save(); g.globalAlpha = k; g.textAlign = 'center'; g.textBaseline = 'middle';
+      const beat = t > tf + 1.4 ? Math.exp(-(t - tf - 1.4) * 7) : 0;
+      // glow & dot exactly as sHook draws them at t = 0
+      glow(g, 540, lerp(650, 700, m), (260 + beat * 90) * lerp(k, 1, m), 'rgba(255,170,90,0.55)', lerp(0.6 + beat * 0.4, 0.6, m));
+      const hs = (90 + beat * 20) * eback(seg(t, tf, tf + 0.6)) * (1 - m);
+      if (hs > 0.5) heart(g, 540, lerp(650, 700, m), hs, C.rose);
+      if (m > 0) { g.fillStyle = C.gold; g.globalAlpha = seg(m, 0.3, 1); g.beginPath(); g.arc(540, 700, 18, 0, Math.PI * 2); g.fill(); g.globalAlpha = 1; }
+      g.save(); g.globalAlpha = k * (1 - seg(m, 0, 0.6)); g.textAlign = 'center'; g.textBaseline = 'middle';
       g.fillStyle = C.amber; g.font = 'italic 600 120px Fraunces'; g.shadowColor = 'rgba(255,170,80,0.6)'; g.shadowBlur = 30;
       g.fillText('Call them today.', 540, 920 + (1 - k) * 30); g.shadowColor = 'transparent';
-      g.globalAlpha = eo(seg(t, tf + 0.8, tf + 1.6));
+      g.globalAlpha *= eo(seg(t, tf + 0.8, tf + 1.6));
       g.fillStyle = C.cream; g.font = '600 46px InterS';
       g.fillText('Send this to someone you love.', 540, 1060);
       g.restore();
@@ -745,14 +750,14 @@ window.renderFrame = function (t) {
   captions(ctx, t, capIds);
   // ambient overlays (not during the silent cut)
   const silent = t >= L.end2.start - 0.06;
-  bokeh(ctx, t, silent ? 0.0 : 0.55);
+  bokeh(ctx, t, silent ? 0.55 * seg(t, TL.duration - 0.85, TL.duration) : 0.55);
   vignette(ctx);
   ctx.save(); ctx.globalAlpha = 0.07; ctx.globalCompositeOperation = 'overlay';
-  ctx.drawImage(GRAIN[Math.floor(t * 30) % GRAIN.length], 0, 0, W, H); ctx.restore();
+  ctx.drawImage(GRAIN[Math.floor((t % TL.duration) * 30 + 1e-6) % GRAIN.length], 0, 0, W, H); ctx.restore();
   // loop-friendly fade at the very end
-  const fo = seg(t, TL.duration - 0.5, TL.duration);
-  if (fo > 0) { ctx.fillStyle = `rgba(11,13,26,${fo})`; ctx.fillRect(0, 0, W, H); }
 };
 
 Promise.all(['600 40px Fraunces', 'italic 600 40px Fraunces', '700 40px Caveat', '800 40px InterX', '600 40px InterS'].map(f => document.fonts.load(f)))
   .then(() => document.fonts.ready).then(() => { window.READY = true; });
+
+window.seek = t => window.renderFrame(((t % TL.duration) + TL.duration) % TL.duration);

@@ -1,6 +1,12 @@
 # The Last Time — YouTube Short (motion graphics)
 
 **Final video:** `The_Last_Time_Short.mp4` (1080×1920, 30 fps, 43 s, H.264 + AAC, -14 LUFS)
+**Standalone player:** `The_Last_Time.html` (one self-contained file with fonts and audio embedded; tap to play; loops seamlessly)
+
+The last frame collapses back into the opening glowing dot, so a Shorts auto-replay has no visible seam.
+Ideas borrowed from the video-skill catalog: gdgtify-929495 (periodic timeline, a moment of absolute stillness,
+deterministic `seek(t)`), aschapmann-724497 (one soft sound per element, frame check for overlap/clipping),
+daniel-haida-636937 (soundtrack synthesized in Python).
 
 ## Upload kit
 **Title:** Nobody tells you this… 💔 #shorts
@@ -34,6 +40,7 @@ pip install kokoro-onnx soundfile scipy
 python3 build/voice.py <dir with kokoro-v1.0.onnx + voices-v1.0.bin>
 python3 build/audio.py
 node build/render.js video 4
+python3 build/bundle.py          # -> The_Last_Time.html
 ffmpeg -framerate 30 -i out/frames/f%05d.jpg -i out/mix.wav -c:v libx264 -crf 17 -pix_fmt yuv420p \
   -af loudnorm=I=-14:TP=-1.5 -c:a aac -b:a 192k -shortest The_Last_Time_Short.mp4
 ```

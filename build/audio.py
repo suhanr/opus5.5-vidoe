@@ -300,7 +300,7 @@ def sfx():
     s = buf()
     L = LINES
     # hook: heartbeat
-    for tb in (0.0, 1.05, 2.1):
+    for tb in (0.2, 1.25, 2.3):
         add(s, heartbeat(), tb, 0.9)
     # transitions: whooshes on most scene changes
     for sid in ("carry1", "knew", "play", "story", "friend", "announce", "now", "call", "coffee", "hug", "end1"):
@@ -351,7 +351,7 @@ def sfx():
     add(s, riser(t_cut - t_end1), t_end1, 0.9)
     # sub drop exactly at the cut for impact
     add(s, thud(0.6), t_cut)
-    for tb in (t_final + 2.55, t_final + 3.6):
+    for tb in (t_final + 1.75,):
         add(s, heartbeat(), tb, 0.7)
     return s
 
