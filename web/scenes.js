@@ -1,6 +1,6 @@
 // "The Last Time" — motion graphics renderer (Canvas 2D, deterministic by time)
 'use strict';
-const HOOK_BEATS = [0.2, 1.25, 2.3];
+const HOOK_BEATS = [0.2, 1.2];
 const W = 1080, H = 1920;
 const TL = window.TIMELINE;
 const L = {}; TL.lines.forEach(l => (L[l.id] = l));
@@ -681,6 +681,7 @@ const SCENES = [
   { lines: ['hug'], draw: sHug, trans: 'zoom', cap: true },
   { lines: ['end1', 'end2'], draw: sEnd, trans: 'fade', cap: false },
 ];
+for (let i = SCENES.length - 1; i >= 0; i--) if (!L[SCENES[i].lines[0]]) SCENES.splice(i, 1);   // scenes not in this cut
 SCENES.forEach((s, i) => { s.start = i === 0 ? 0 : L[s.lines[0]].start - 0.32; });
 const TR = 0.45;
 

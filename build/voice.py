@@ -20,25 +20,21 @@ SR = 24000
 
 # (scene id, line, pause AFTER the line in seconds)
 SCRIPT = [
-    ("hook",     "Nobody tells you this.", 0.9),
-    ("carry1",   "One day, your mom picked you up,", 0.25),
-    ("carry2",   "put you down,", 0.35),
-    ("carry3",   "and never picked you up again.", 0.6),
-    ("knew",     "Neither of you knew it was the last time.", 1.0),
-    ("play",     "The last time you played outside until the streetlights came on.", 0.5),
-    ("story",    "The last bedtime story.", 0.6),
-    ("friend",   "The last time you told your best friend, see you tomorrow.", 0.9),
-    ("announce", "Life never announces its last times.", 0.8),
-    ("now",      "And right now, someone you love is living one with you.", 1.0),
-    ("call",     "So when Mom calls, pick up.", 0.6),
-    ("coffee",   "Stay for one more cup of coffee.", 0.5),
-    ("hug",      "Hug a little longer.", 1.0),
-    ("end1",     "Because one day, it will be the last time.", 0.7),
+    ("hook",     "Nobody tells you this.", 0.6),
+    ("carry1",   "One day, your mom picked you up,", 0.2),
+    ("carry2",   "put you down,", 0.25),
+    ("carry3",   "and never picked you up again.", 0.5),
+    ("knew",     "Neither of you knew it was the last time.", 0.7),
+    ("play",     "The last time you played outside until the streetlights came on.", 0.45),
+    ("announce", "Life never announces its last times.", 0.6),
+    ("call",     "So when Mom calls, pick up.", 0.5),
+    ("hug",      "Hug a little longer.", 0.7),
+    ("end1",     "Because one day, it will be the last time.", 0.6),
     ("end2",     "And you won't know.", 0.0),
 ]
 
-LEAD_IN = 0.6      # silence before first line
-END_CARD = 3.6     # seconds after last line for the end card
+LEAD_IN = 0.5      # silence before first line
+END_CARD = 3.2     # seconds after last line for the end card
 
 
 def trim(audio, thresh=0.01, pad=0.03):

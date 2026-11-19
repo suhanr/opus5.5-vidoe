@@ -300,11 +300,11 @@ def sfx():
     s = buf()
     L = LINES
     # hook: heartbeat
-    for tb in (0.2, 1.25, 2.3):
+    for tb in (0.2, 1.2):
         add(s, heartbeat(), tb, 0.9)
     # transitions: whooshes on most scene changes
     for sid in ("carry1", "knew", "play", "story", "friend", "announce", "now", "call", "coffee", "hug", "end1"):
-        add(s, whoosh(0.75), L[sid]["start"] - 0.5, 0.35, pan=rng.uniform(-0.3, 0.3))
+        if sid in L: add(s, whoosh(0.75), L[sid]["start"] - 0.5, 0.35, pan=rng.uniform(-0.3, 0.3))
     # carry: lift + set down
     add(s, chime(79, 0.12), L["carry1"]["start"] + 0.5, pan=0.2)
     add(s, thud(0.25), L["carry2"]["start"] + 0.6)
@@ -318,16 +318,18 @@ def sfx():
         add(s, bounce(0.22 - k * 0.02), p0 + 0.3 + k * 0.48, pan=-0.3 + k * 0.15)
     add(s, lamp_on(), word_t("play", "streetlights"), 0.8, pan=0.35)
     # story: page flips, then book closes
-    st = L["story"]["start"]
-    add(s, page_flip(0.3), st + 0.15, pan=0.2)
-    add(s, page_flip(0.25), st + 0.55, pan=-0.1)
-    add(s, thud(0.35), st + 1.35)
-    add(s, chime(88, 0.06, 2.5), st + 1.5, pan=0.4)
+    if "story" in L:
+        st = L["story"]["start"]
+        add(s, page_flip(0.3), st + 0.15, pan=0.2)
+        add(s, page_flip(0.25), st + 0.55, pan=-0.1)
+        add(s, thud(0.35), st + 1.35)
+        add(s, chime(88, 0.06, 2.5), st + 1.5, pan=0.4)
     # friend: soft chime on "tomorrow"
-    add(s, chime(76, 0.1), word_t("friend", "see"), pan=-0.2)
-    add(s, chime(83, 0.08), word_t("friend", "tomorrow"), pan=0.2)
+    if "friend" in L:
+        add(s, chime(76, 0.1), word_t("friend", "see"), pan=-0.2)
+        add(s, chime(83, 0.08), word_t("friend", "tomorrow"), pan=0.2)
     # announce: accelerating ticks + flips
-    a0, a1 = L["announce"]["start"] - 0.1, L["now"]["start"] - 0.25
+    a0, a1 = L["announce"]["start"] - 0.1, L["call"]["start"] - 0.25
     tk = a0
     gap = 0.32
     while tk < a1:
@@ -336,7 +338,8 @@ def sfx():
         tk += gap
         gap = max(0.07, gap * 0.9)
     # now: hourglass sand
-    add(s, sand(L["call"]["start"] - L["now"]["start"]), L["now"]["start"], 1.0)
+    if "now" in L:
+        add(s, sand(L["call"]["start"] - L["now"]["start"]), L["now"]["start"], 1.0)
     # call: vibrate x2 then pickup pop
     c0 = L["call"]["start"]
     add(s, vibrate(0.55), c0 - 0.25, 0.9)
@@ -344,7 +347,8 @@ def sfx():
     add(s, click(1200, 0.06, 0.4), word_t("call", "pick"), pan=0.1)
     add(s, chime(84, 0.08, 1.2), word_t("call", "pick") + 0.05)
     # coffee: mugs clink
-    add(s, clink(0.22), L["coffee"]["start"] + 1.35, pan=0.1)
+    if "coffee" in L:
+        add(s, clink(0.22), L["coffee"]["start"] + 1.35, pan=0.1)
     # hug: warm shimmer
     add(s, shimmer(3.0), L["hug"]["start"] + 0.55, 0.9)
     # end: riser into the cut, then heartbeat on end card

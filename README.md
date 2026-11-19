@@ -1,6 +1,6 @@
 # The Last Time — YouTube Short (motion graphics)
 
-**Final video:** `The_Last_Time_Short.mp4` (1080×1920, 30 fps, 43 s, H.264 + AAC, -14 LUFS)
+**Final video:** `The_Last_Time_Short.mp4` (1080×1920, 30 fps, 28.6 s, H.264 + AAC, -14 LUFS)
 **Standalone player:** `The_Last_Time.html` (one self-contained file with fonts and audio embedded; tap to play; loops seamlessly)
 
 The last frame collapses back into the opening glowing dot, so a Shorts auto-replay has no visible seam.
@@ -21,11 +21,12 @@ Call them today. ❤️
 ## Script (voice-over)
 Nobody tells you this. / One day, your mom picked you up, put you down, and never picked you up again. /
 Neither of you knew it was the last time. / The last time you played outside until the streetlights came on. /
-The last bedtime story. / The last time you told your best friend, see you tomorrow. /
-Life never announces its last times. / And right now, someone you love is living one with you. /
-So when Mom calls, pick up. / Stay for one more cup of coffee. / Hug a little longer. /
+Life never announces its last times. / So when Mom calls, pick up. / Hug a little longer. /
 Because one day, it will be the last time. / And you won't know.
 — End card: “Call them today.”
+
+(The longer 43 s cut with the bedtime-story, best-friend, hourglass and coffee scenes is in git history; those
+scenes are still in `web/scenes.js` and come back automatically if their lines are added to `build/voice.py`.)
 
 ## How it is made (all generated, no stock assets)
 - `build/voice.py` – voice-over with Kokoro TTS (voice `af_heart`), word timings → `web/timeline.js`
