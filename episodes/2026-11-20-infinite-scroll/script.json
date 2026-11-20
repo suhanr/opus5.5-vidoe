@@ -1,0 +1,52 @@
+{
+  "title": "He Invented Infinite Scroll. Now He Regrets It.",
+  "style": "dark-tech / glitch / neon red",
+  "voices": {
+    "A": { "voice": "am_michael", "speed": 0.92 },
+    "B": { "voice": "af_heart", "speed": 0.9 }
+  },
+  "lead_in": 0.4,
+  "end_card": 3.0,
+  "lines": [
+    { "id": "hook",      "voice": "A", "text": "The man who invented infinite scroll regrets it.", "pause": 0.5 },
+    { "id": "y2006",     "voice": "A", "text": "In 2006, a designer named Aza Raskin made the internet endless.", "pause": 0.35 },
+    { "id": "no1",       "voice": "B", "text": "No pages.", "pause": 0.15 },
+    { "id": "no2",       "voice": "B", "text": "No bottom.", "pause": 0.15 },
+    { "id": "no3",       "voice": "B", "text": "No reason to stop.", "pause": 0.5 },
+    { "id": "easy",      "voice": "A", "text": "He thought he was making life easier.", "pause": 0.25 },
+    { "id": "steal",     "voice": "B", "text": "Instead, it learned to steal your time.", "pause": 0.6 },
+    { "id": "lifetimes", "voice": "A", "text": "Years later, he estimated it wastes 200,000 human lifetimes. Every single day.", "pause": 0.6 },
+    { "id": "done",      "voice": "B", "text": "You don't stop scrolling because you're finished.", "pause": 0.2 },
+    { "id": "tired",     "voice": "B", "text": "You stop because you're exhausted.", "pause": 0.6 },
+    { "id": "never",     "voice": "A", "text": "The feed was never built to end.", "pause": 0.6 },
+    { "id": "you",       "voice": "A", "text": "So you have to.", "pause": 0.0 }
+  ],
+  "scenes": [
+    { "lines": ["hook"], "trans": "fade", "cap": false },
+    { "lines": ["y2006"], "trans": "glitch", "cap": true },
+    { "lines": ["no1", "no2", "no3"], "trans": "cut", "cap": false, "lead": 0.05 },
+    { "lines": ["easy", "steal"], "trans": "glitch", "cap": true },
+    { "lines": ["lifetimes"], "trans": "glitch", "cap": false },
+    { "lines": ["done", "tired"], "trans": "zoom", "cap": true },
+    { "lines": ["never"], "trans": "glitch", "cap": true },
+    { "lines": ["you"], "trans": "cut", "cap": false, "lead": 0.06 }
+  ],
+  "music": { "preset": "dark_pulse", "build": "no1", "peak": "lifetimes", "cut": "you", "bpm": 88, "level": 0.5 },
+  "sfx": [
+    { "type": "glitch", "at": "hook", "offset": -0.4, "gain": 0.35 },
+    { "type": "scroll", "dur": 1.6, "at": "hook", "offset": -0.2, "gain": 0.35 },
+    { "type": "typing", "dur": 0.8, "at": "y2006", "offset": 0.0, "gain": 0.3 },
+    { "type": "click", "freq": 1800, "at": "y2006:made", "gain": 0.4 },
+    { "type": "scroll", "dur": 1.0, "at": "y2006:endless", "gain": 0.35 },
+    { "type": "impact", "at": "no1", "offset": -0.03, "gain": 0.5 },
+    { "type": "impact", "at": "no2", "offset": -0.03, "gain": 0.5 },
+    { "type": "impact", "at": "no3", "offset": -0.03, "gain": 0.65 },
+    { "type": "ticks", "dur": 2.0, "at": "steal", "offset": -0.1, "gain": 0.3, "pan": 0.3 },
+    { "type": "counter", "dur": 2.4, "at": "lifetimes", "offset": 0.2, "gain": 0.3 },
+    { "type": "impact", "at": "lifetimes:every", "gain": 0.6 },
+    { "type": "ding", "at": "done", "offset": 0.3, "gain": 0.12, "pan": -0.3 },
+    { "type": "scroll", "dur": 2.4, "at": "done", "offset": 0.4, "gain": 0.25 },
+    { "type": "whoosh", "dur": 1.4, "at": "never", "offset": 0.0, "gain": 0.4 },
+    { "type": "crt_off", "at": "you", "offset": -0.06, "gain": 0.6 }
+  ]
+}

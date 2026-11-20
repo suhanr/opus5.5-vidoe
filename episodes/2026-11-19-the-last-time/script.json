@@ -1,0 +1,46 @@
+{
+  "title": "The Last Time",
+  "voices": { "A": { "voice": "af_heart", "speed": 0.86 } },
+  "lead_in": 0.5,
+  "end_card": 3.2,
+  "lines": [
+    { "id": "hook",     "text": "Nobody tells you this.", "pause": 0.6 },
+    { "id": "carry1",   "text": "One day, your mom picked you up,", "pause": 0.2 },
+    { "id": "carry2",   "text": "put you down,", "pause": 0.25 },
+    { "id": "carry3",   "text": "and never picked you up again.", "pause": 0.5 },
+    { "id": "knew",     "text": "Neither of you knew it was the last time.", "pause": 0.7 },
+    { "id": "play",     "text": "The last time you played outside until the streetlights came on.", "pause": 0.45 },
+    { "id": "announce", "text": "Life never announces its last times.", "pause": 0.6 },
+    { "id": "call",     "text": "So when Mom calls, pick up.", "pause": 0.5 },
+    { "id": "hug",      "text": "Hug a little longer.", "pause": 0.7 },
+    { "id": "end1",     "text": "Because one day, it will be the last time.", "pause": 0.6 },
+    { "id": "end2",     "text": "And you won't know.", "pause": 0.0 }
+  ],
+  "scenes": [
+    { "lines": ["hook"], "trans": "fade", "cap": false },
+    { "lines": ["carry1", "carry2", "carry3"], "trans": "zoom", "cap": true },
+    { "lines": ["knew"], "trans": "flash", "cap": false },
+    { "lines": ["play"], "trans": "slide", "cap": true },
+    { "lines": ["announce"], "trans": "flash", "cap": false },
+    { "lines": ["call"], "trans": "slide", "cap": true },
+    { "lines": ["hug"], "trans": "zoom", "cap": true },
+    { "lines": ["end1", "end2"], "trans": "fade", "cap": false }
+  ],
+  "music": { "preset": "tender_piano", "build": "knew", "peak": "announce", "cut": "end2", "bpm": 64 },
+  "sfx": [
+    { "type": "heartbeat", "at": "hook", "offset": -0.3, "gain": 0.9 },
+    { "type": "heartbeat", "at": "hook", "offset": 0.7, "gain": 0.9 },
+    { "type": "bell", "note": 79, "at": "carry1", "offset": 0.5, "gain": 0.12, "pan": 0.2 },
+    { "type": "thud", "at": "carry2", "offset": 0.6, "gain": 0.25 },
+    { "type": "click", "freq": 3800, "at": "knew", "offset": -0.05, "gain": 0.35 },
+    { "type": "page_flip", "at": "knew", "gain": 0.3 },
+    { "type": "thud", "at": "knew", "offset": 0.55, "gain": 0.3 },
+    { "type": "ticks", "dur": 2.6, "at": "announce", "offset": -0.1, "gain": 0.3, "pan": 0.2 },
+    { "type": "vibrate", "dur": 0.55, "at": "call", "offset": -0.25, "gain": 0.9 },
+    { "type": "vibrate", "dur": 0.55, "at": "call", "offset": 0.55, "gain": 0.9 },
+    { "type": "click", "freq": 1200, "at": "call:pick", "gain": 0.4, "pan": 0.1 },
+    { "type": "bell", "note": 84, "dur": 1.2, "at": "call:pick", "offset": 0.05, "gain": 0.08 },
+    { "type": "shimmer", "dur": 3.0, "at": "hug", "offset": 0.55, "gain": 0.9 },
+    { "type": "heartbeat", "at": "end2:end", "offset": 2.1, "gain": 0.7 }
+  ]
+}

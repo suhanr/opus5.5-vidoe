@@ -1,0 +1,7 @@
+{
+  "name": "suhanur-rahman-shorts",
+  "private": true,
+  "description": "Daily YouTube Shorts engine (Canvas motion graphics rendered in headless Chromium)",
+  "scripts": {},
+  "dependencies": { "playwright": "1.49.1" }
+}

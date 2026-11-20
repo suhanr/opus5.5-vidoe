@@ -1,0 +1,33 @@
+{
+  "timezone": "Asia/Dhaka",
+  "upload_hour": 9,
+  "episodes": [
+    {
+      "date": "2026-11-19",
+      "slug": "2026-11-19-the-last-time",
+      "topic": "The last time (parents, childhood)",
+      "topic_category": "life & relationships",
+      "style": "warm flat illustration / piano",
+      "preset": "tender_piano",
+      "voices": [
+        "af_heart"
+      ],
+      "status": "made_not_uploaded",
+      "note": "first prototype; user may upload manually"
+    },
+    {
+      "date": "2026-11-20",
+      "slug": "2026-11-20-infinite-scroll",
+      "topic": "Infinite scroll's inventor regrets it",
+      "topic_category": "tech & attention",
+      "style": "dark-tech / glitch / neon red",
+      "preset": "dark_pulse",
+      "voices": [
+        "af_heart",
+        "am_michael"
+      ],
+      "status": "built",
+      "note": "test episode for the first supervised upload"
+    }
+  ]
+}

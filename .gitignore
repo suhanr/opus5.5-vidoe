@@ -1,2 +1,6 @@
-out/
 __pycache__/
+node_modules/
+models/
+out/
+episodes/*/out/
+episodes/*/final/*.mp4
