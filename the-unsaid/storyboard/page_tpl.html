@@ -6,7 +6,7 @@
 /* Layout: a film-strip column of scene rows (frame left, notes right), stacking to one column on phones */
 :root{
   --ink:#0F1420; --ink2:#161C2B; --line:#283047; --paper:#F2EBDD; --dim:#9AA0AF;
-  --amber:#E8A33D; --teal:#5FA59A; --rust:#D0603F;
+  --amber:#E8A33D; --teal:#5FA59A; --rust:#D0603F; --rose:#B86B75;
   --display:"Fraunces", Georgia, serif; --body:"Hind Siliguri","Noto Sans Bengali",system-ui,sans-serif;
   color-scheme:dark;
 }
@@ -40,11 +40,22 @@ dd{margin:0}
 .ask{margin-top:40px;padding:22px;border:1px solid var(--teal);background:var(--ink2)}
 .ask h2{margin-top:0}
 .ask ol{margin:0;padding-left:20px;display:grid;gap:6px}
+.cast{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:18px}
+.char{display:grid;grid-template-columns:minmax(0,170px) minmax(0,1fr);gap:18px;padding:18px;background:var(--ink2);border:1px solid var(--line);border-top:3px solid var(--c)}
+.char:last-child:nth-child(odd){grid-column:1/-1}
+.char .hero svg{width:100%;height:auto;display:block}
+.char h3{margin:0;font-size:24px}.char .role{color:var(--c);font-size:14px;margin-bottom:8px}
+.char p{margin:0 0 8px;font-size:15px}
+.expr{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.expr figure{margin:0;text-align:center;font-size:12px;color:var(--dim);width:72px}
+.expr svg{width:72px;height:72px;display:block;background:var(--ink);border-radius:50%}
+.note{color:var(--dim);font-size:14px;max-width:70ch;margin:0 0 16px}
+@media (max-width:520px){.char{grid-template-columns:1fr}.char .hero{max-width:200px}}
 @media (max-width:640px){.scene{grid-template-columns:1fr}.scene img{max-width:320px}}
 </style>
 <div class="wrap">
 <header>
-  <div class="eyebrow">স্টোরিবোর্ড · ভয়েসওভার ৩:৪৫ · ১৮টা সিন</div>
+  <div class="eyebrow">স্টোরিবোর্ড · ভয়েসওভার ৩:৪৫ · ১৮টা সিন · ৪টা চরিত্র</div>
   <h1><span class="dot"></span>The Unsaid</h1>
   <p class="lede">“বাবা-মা নাকি সব সন্তানরে সমান ভালোবাসে” — ভয়েসওভারের জন্য মোশন গ্রাফিক্সের পরিকল্পনা। প্রতিটা ফ্রেম আসল ফন্ট দিয়ে বানানো স্টাইল-ফ্রেম; ফাইনাল ভিডিওতে এগুলো অ্যানিমেটেড হবে। টাইমকোড আনুমানিক, বানানোর সময় শব্দ ধরে ধরে মেলানো হবে।</p>
 </header>
@@ -63,6 +74,42 @@ dd{margin:0}
   <span class="chip"><i style="background:var(--teal)"></i>টিল — আপা: সেবা, ঘাম, অদৃশ্য শ্রম</span>
   <span class="chip"><i style="background:var(--rust)"></i>রাস্ট — সত্যের আঘাত: মিথ্যা, লোভ</span>
 </div>
+
+<h2>চরিত্র</h2>
+<p class="note">ফ্ল্যাট ভেক্টর স্টাইল, যাতে লাইন-আর্ট আর টাইপোগ্রাফির সাথে মিশে যায়। প্রতিটা অংশ (মাথা, হাত, চোখ, ধোঁয়া) আলাদা লেয়ার, তাই ভিডিওতে আলাদা আলাদা নড়াচড়া করানো যাবে। পোশাকের রং সেই একই রঙের মানে মেনে চলে।</p>
+<div class="cast" id="cast"></div>
+<script>{{CHARJS}}</script>
+<script>
+(function(){
+const K=window.CHAR, box=(s,vb)=>'<svg viewBox="'+(vb||'0 0 400 760')+'" role="img">'+s+'</svg>';
+const faceVB={son:'130 50 140 140',apa:'136 60 128 128',abba:'130 160 132 132',amma:'136 76 128 128'};
+const cast=[
+ {k:'son',c:'var(--amber)',name:'আমি',role:'ছোট ভাই · ৩০ · ঢাকায় চাকরি করে · কথক',hero:K.son('neutral','phone'),
+  look:'সাদা অফিস শার্ট, গাঢ় নীল প্যান্ট, গলায় অ্যাম্বার রঙের অফিস আইডি, হাতে ফোন। পরিপাটি চুল।',
+  feel:'ভদ্র, আরামপ্রিয়, ভেতরে অপরাধবোধ। গল্প যত এগোয়, মাথা তত নিচু হয়।',
+  ex:[['neutral','স্বাভাবিক'],['smile','সেলফি'],['guilt','মাথা নিচু'],['still','থমকে যাওয়া']]},
+ {k:'apa',c:'var(--teal)',name:'বড় আপা',role:'বড় বোন · ৩৮ · আব্বার সেবাদানকারী',hero:K.apa('tired','bowl'),
+  look:'টিল সালোয়ার-কামিজ, গাঢ় টিল ওড়না কাঁধে, চুল খোঁপা করা, এক গোছা পাকা চুল, চোখের নিচে ক্লান্তির ছায়া। হাতে গরম পানির গামলা আর তোয়ালে।',
+  feel:'চুপচাপ, শান্ত, কখনো অভিযোগ করে না। কান্না বা রাগ দেখায় না, শুধু চোখে বোঝা যায়।',
+  ex:[['tired','ক্লান্ত'],['still','হাত থেমে যাওয়া'],['soft','আচারের কথা'],['hollow','শূন্য চোখ']]},
+ {k:'abba',c:'var(--paper)',name:'আব্বা',role:'বাবা · ৬৮ · স্ট্রোকের রোগী',hero:K.abba('droop'),
+  look:'সাদা পাঞ্জাবি, নীল চেক লুঙ্গি, সাদা টুপি আর দাড়ি, গোল চশমা। খাটে বালিশে হেলান দিয়ে বসা। স্ট্রোকের কারণে ডান হাত কোলে অবশ পড়ে থাকে, মুখের একপাশ একটু ঝুলে আছে।',
+  feel:'দুর্বল শরীর, কিন্তু “বংশ” নিয়ে কঠোর। ভাঙা গলায় শেষ সিদ্ধান্ত দেন।',
+  ex:[['droop','দুর্বল'],['droopStern','বংশের বাতি'],['tired','সময় কম']]},
+ {k:'amma',c:'var(--rose)',name:'আম্মা',role:'মা · ৬০',hero:K.amma('proud','talk'),
+  look:'গোলাপি-মেরুন শাড়ি, মাথায় আঁচল দিয়ে ঘোমটা, পাড়ে অ্যাম্বার রঙের সরু বর্ডার (ছেলের গর্বের সাথে মিল), কপালের কাছে পাকা চুল।',
+  feel:'পাড়ার লোকের সামনে ছেলের গল্পে গর্বে ঝলমল। মেয়ের কথা উঠলে চুপ।',
+  ex:[['proud','গর্ব'],['smile','গল্প বলা'],['neutral','আপার প্রসঙ্গে চুপ']]},
+ {k:'crowd',c:'var(--dim)',name:'পাড়ার লোকজন',role:'প্রতিবেশী · পটভূমি',hero:K.crowd(),
+  look:'ধূসর-নীল সিলুয়েট, মুখ নেই। শুধু সমাজের উপস্থিতি বোঝাতে।',
+  feel:'“সমাজ” নিজেই। এরা শোনে, মাথা নাড়ে, প্রশংসা করে।',ex:[]}
+];
+document.getElementById('cast').innerHTML=cast.map(o=>{
+ const ex=o.ex.map(([e,l])=>'<figure>'+box(K[o.k](e),faceVB[o.k])+'<figcaption>'+l+'</figcaption></figure>').join('');
+ return '<article class="char" style="--c:'+o.c+'"><div class="hero">'+box(o.hero)+'</div><div><h3>'+o.name+'</h3><div class="role">'+o.role+'</div><p><b>লুক:</b> '+o.look+'</p><p><b>চরিত্র:</b> '+o.feel+'</p>'+(ex?'<div class="expr">'+ex+'</div>':'')+'</div></article>';
+}).join('');
+})();
+</script>
 
 <h2>সিন বাই সিন</h2>
 {{CARDS}}

@@ -44,5 +44,5 @@ for i,(tc,name,vo,vis,tr,sfx) in enumerate(S,1):
 <div class="meta"><div class="top"><span class="num">{i:02d}</span><span class="tc">{tc}</span></div><h3>{html.escape(name)}</h3>
 <p class="vo">{html.escape(vo)}</p>
 <dl><dt>ভিজ্যুয়াল</dt><dd>{html.escape(vis)}</dd><dt>ট্রানজিশন</dt><dd>{html.escape(tr)}</dd><dt>সাউন্ড</dt><dd>{html.escape(sfx)}</dd></dl></div></article>\n'''
-page=open('page_tpl.html').read().replace('{{CARDS}}',cards)
+page=open('page_tpl.html').read().replace('{{CARDS}}',cards).replace('{{CHARJS}}',open('../web/characters.js').read())
 open('index.html','w').write(page)
