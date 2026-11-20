@@ -1,0 +1,151 @@
+<title>The Unsaid Storyboard</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Hind+Siliguri:wght@400;600&display=swap">
+<style>
+/* Layout: a film-strip column of scene rows (frame left, notes right), stacking to one column on phones */
+:root{
+  --ink:#0F1420; --ink2:#161C2B; --line:#283047; --paper:#F2EBDD; --dim:#9AA0AF;
+  --amber:#E8A33D; --teal:#5FA59A; --rust:#D0603F;
+  --display:"Fraunces", Georgia, serif; --body:"Hind Siliguri","Noto Sans Bengali",system-ui,sans-serif;
+  color-scheme:dark;
+}
+body{background:var(--ink);color:var(--paper);font-family:var(--body);font-size:16px;line-height:1.6}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:40px 64px}
+header{display:grid;gap:12px;padding-bottom:28px;border-bottom:1px solid var(--line)}
+.eyebrow{font:600 12px/1 var(--display);letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
+h1{font:italic 500 clamp(40px,7vw,68px)/1 var(--display);margin:0;letter-spacing:-.01em}
+h1 .dot{display:inline-block;width:.18em;height:.18em;border-radius:50%;background:var(--amber);box-shadow:0 0 14px var(--amber);vertical-align:.35em;margin-right:.18em}
+.lede{max-width:62ch;color:var(--dim);margin:0}
+.specs{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin:28px 0}
+.specs div{background:var(--ink2);padding:14px 16px;min-width:0}
+.specs b{display:block;font:600 11px var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:4px}
+.code{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 8px}
+.chip{display:flex;align-items:center;gap:8px;padding:6px 12px;border:1px solid var(--line);border-radius:999px;font-size:14px}
+.chip i{width:12px;height:12px;border-radius:50%}
+h2{font:600 22px var(--display);margin:40px 0 16px}
+.scene{display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:24px;padding:22px 0;border-top:1px solid var(--line)}
+.scene img{width:100%;height:auto;aspect-ratio:4/5;display:block;border:1px solid var(--line)}
+.scene.key img{outline:2px solid var(--teal);outline-offset:4px}
+.meta{min-width:0}
+.top{display:flex;gap:14px;align-items:baseline;font-family:var(--display);font-variant-numeric:tabular-nums}
+.num{font-size:28px;font-weight:600;color:var(--amber)}
+.key .num{color:var(--teal)}
+.tc{color:var(--dim);font-size:14px;letter-spacing:.06em}
+h3{margin:2px 0 8px;font-size:22px;font-weight:600}
+.vo{margin:0 0 12px;padding-left:12px;border-left:2px solid var(--line);color:var(--dim);font-size:15px}
+dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 14px;margin:0}
+dt{font:600 11px/2 var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--dim);white-space:nowrap}
+dd{margin:0}
+.ask{margin-top:40px;padding:22px;border:1px solid var(--teal);background:var(--ink2)}
+.ask h2{margin-top:0}
+.ask ol{margin:0;padding-left:20px;display:grid;gap:6px}
+@media (max-width:640px){.scene{grid-template-columns:1fr}.scene img{max-width:320px}}
+</style>
+<div class="wrap">
+<header>
+  <div class="eyebrow">স্টোরিবোর্ড · ভয়েসওভার ৩:৪৫ · ১৮টা সিন</div>
+  <h1><span class="dot"></span>The Unsaid</h1>
+  <p class="lede">“বাবা-মা নাকি সব সন্তানরে সমান ভালোবাসে” — ভয়েসওভারের জন্য মোশন গ্রাফিক্সের পরিকল্পনা। প্রতিটা ফ্রেম আসল ফন্ট দিয়ে বানানো স্টাইল-ফ্রেম; ফাইনাল ভিডিওতে এগুলো অ্যানিমেটেড হবে। টাইমকোড আনুমানিক, বানানোর সময় শব্দ ধরে ধরে মেলানো হবে।</p>
+</header>
+
+<div class="specs">
+  <div><b>ফরম্যাট</b>1080×1350 (4:5), 30 fps, MP4</div>
+  <div><b>ব্র্যান্ড</b>“The Unsaid” — উপরের বাম কোণায়, সারা ভিডিও জুড়ে; শেষে এন্ড কার্ড</div>
+  <div><b>ফন্ট (লিপিঘর)</b>আলিনুর সংবাদপত্র — হুক টেক্সট · আলিনুর তৎসম — সাধারণ লেখা · আলিনুর নক্ষত্র — সংলাপ</div>
+  <div><b>টেক্সট স্টাইল</b>সাবটাইটেল না; প্রতিটা লাইনের মূল শব্দগুলো কিনেটিক হুক টেক্সট হিসেবে আসবে</div>
+  <div><b>অডিও</b>আপনার ভয়েসওভার + নিজে বানানো সাউন্ড ইফেক্ট ও নিচু ড্রোন/পিয়ানো স্কোর, -14 LUFS</div>
+</div>
+
+<div class="eyebrow" style="margin-bottom:10px">রঙের মানে (পুরো ভিডিওতে একই থাকবে)</div>
+<div class="code">
+  <span class="chip"><i style="background:var(--amber)"></i>অ্যাম্বার — ছেলে: টাকা, গর্ব, বংশ</span>
+  <span class="chip"><i style="background:var(--teal)"></i>টিল — আপা: সেবা, ঘাম, অদৃশ্য শ্রম</span>
+  <span class="chip"><i style="background:var(--rust)"></i>রাস্ট — সত্যের আঘাত: মিথ্যা, লোভ</span>
+</div>
+
+<h2>সিন বাই সিন</h2>
+<article class="scene"><img src="img/s01.jpg" alt="সিন 1: হুক" loading="lazy" width="540" height="675">
+<div class="meta"><div class="top"><span class="num">01</span><span class="tc">00:00–00:06</span></div><h3>হুক</h3>
+<p class="vo">আমাদের সমাজে একটা কথা খুব চলে—বাবা-মা নাকি সব সন্তানরে সমান ভালোবাসে।</p>
+<dl><dt>ভিজ্যুয়াল</dt><dd>কালো স্ক্রিনে একটা আলোর বিন্দু → দুইটা হার্ট লাইন-ড্র হয়, মাঝে ‘=’ চিহ্ন। ‘সমান’ শব্দটা অ্যাম্বার রঙে স্ল্যাম-ইন, কিনেটিক টাইপ শব্দ ধরে ধরে।</dd><dt>ট্রানজিশন</dt><dd>ওপেনিং: লাইট-ডট বিস্তার</dd><dt>সাউন্ড</dt><dd>লো সাব-ড্রোন, প্রতিটা শব্দে সফট টিক, ‘সমান’-এ বেস হিট</dd></dl></div></article>
+<article class="scene"><img src="img/s02.jpg" alt="সিন 2: মিথ্যা" loading="lazy" width="540" height="675">
+<div class="meta"><div class="top"><span class="num">02</span><span class="tc">00:06–00:09</span></div><h3>মিথ্যা</h3>
+<p class="vo">এইটা আমাদের সবচেয়ে ভদ্র মিথ্যা।</p>
+<dl><dt>ভিজ্যুয়াল</dt><dd>‘=’ চিহ্নটা ফাটল ধরে ভেঙে ‘≠’ হয়ে যায়। ‘ভদ্র মিথ্যা’ রাস্ট রঙে, হালকা গ্লিচ-জিটার আর স্ক্রিন শেক।</dd><dt>ট্রানজিশন</dt><dd>গ্লিচ কাট</dd><dt>সাউন্ড</dt><dd>গ্লাস-ক্র্যাক, ডিপ ইমপ্যাক্ট, পরে ১ সেকেন্ড টোন-ড্রপ</dd></dl></div></article>
+<article class="scene"><img src="img/s03.jpg" alt="সিন 3: দূরত্ব" loading="lazy" width="540" height="675">
+<div class="meta"><div class="top"><span class="num">03</span><span class="tc">00:09–00:21</span></div><h3>দূরত্ব</h3>
+<p class="vo">স্ট্রোক… চার বছর ঢাকায়… আপা ছিল আব্বার মাথার কাছে।</p>
+<dl><dt>ভিজ্যুয়াল</dt><dd>ECG লাইন দৌড়ায়, একটা স্পাইকের পর ফ্ল্যাট হয়ে ‘চার বছর আগে’ লেখায় রূপ নেয়। স্ক্রিন দুই ভাগ: বামে ঢাকা (অ্যাম্বার, শহরের স্কাইলাইন), ডানে ‘মাথার কাছে’ (টিল, বিছানা)। ‘বছরে ২ বার’ কাউন্টার।</dd><dt>ট্রানজিশন</dt><dd>ম্যাচ-কাট: ECG → টাইপ, তারপর স্প্লিট-স্লাইড</dd><dt>সাউন্ড</dt><dd>মনিটর বিপ, হুশ, শহরের দূরের হর্ন</dd></dl></div></article>
+<article class="scene"><img src="img/s04.jpg" alt="সিন 4: আপার খাতা" loading="lazy" width="540" height="675">
+<div class="meta"><div class="top"><span class="num">04</span><span class="tc">00:21–00:41</span></div><h3>আপার খাতা</h3>
+<p class="vo">সংসার, বাচ্চা, চাকরি… ক্যাথেটার, রাত তিনটায় প্রেশার, হাসপাতালের বারান্দা… চাকরিটা ছাইড়া দিল।</p>
+<dl><dt>ভিজ্যুয়াল</dt><dd>একটা চেকলিস্ট লাইন বাই লাইন টাইপ হয়; ‘রাত ৩:০০’-এ ঘড়ির কাঁটা ঘোরে, বারান্দার অংশে মশার মতো ছোট ডট ঘুরপাক খায়। শেষে রাস্ট রঙের স্ট্যাম্প ধপ করে পড়ে: ‘চাকরি ছাইড়া দিল’।</dd><dt>ট্রানজিশন</dt><dd>পুশ-ইন জুম-ব্লার</dd><dt>সাউন্ড</dt><dd>টাইপরাইটার টিক, ক্লক টিক, মশার গুনগুন, স্ট্যাম্প থাড</dd></dl></div></article>
+<article class="scene"><img src="img/s05.jpg" alt="সিন 5: আমার হিসাব" loading="lazy" width="540" height="675">
+<div class="meta"><div class="top"><span class="num">05</span><span class="tc">00:41–00:52</span></div><h3>আমার হিসাব</h3>
+<p class="vo">আমি কী করতাম? প্রতি মাসের এক তারিখে বিশ হাজার টাকা… সেলফি তুইলা ফেসবুকে দিতাম।</p>
+<dl><dt>ভিজ্যুয়াল</dt><dd>‘৳২০,০০০’ অডোমিটারের মতো রোল করে উঠে আসে, ক্যালেন্ডারে ১ তারিখ টিক। এরপর ফোন-ফ্রেম, ক্যামেরা ফ্ল্যাশ, লাইক আইকন ভেসে ওঠে।</dd><dt>ট্রানজিশন</dt><dd>হোয়াইট ফ্ল্যাশ</dd><dt>সাউন্ড</dt><dd>কয়েন রোল, নোটিফিকেশন ডিং, ক্যামেরা শাটার</dd></dl></div></article>
+<article class="scene"><img src="img/s06.jpg" alt="সিন 6: আম্মার গর্ব" loading="lazy" width="540" height="675">
+<div class="meta"><div class="top"><span class="num">06</span><span class="tc">00:52–01:06</span></div><h3>আম্মার গর্ব</h3>
+<p class="vo">আম্মা গর্ব কইরা আমার গল্প কইত— “আমার ছেলে তো ঢাকায় বড় চাকরি করে…”</p>
+<dl><dt>ভিজ্যুয়াল</dt><dd>মাইক আইকন থেকে সাউন্ড-ওয়েভ রিং ছড়ায়। আম্মার কথা কোট-স্টাইলে বড় হরফে, ‘বড় চাকরি’ অ্যাম্বার হাইলাইট।</dd><dt>ট্রানজিশন</dt><dd>রেডিয়াল ওয়াইপ</dd><dt>সাউন্ড</dt><dd>মাইক ফিডব্যাক, লোকজনের মৃদু গুঞ্জন</dd></dl></div></article>
+<article class="scene"><img src="img/s07.jpg" alt="সিন 7: পাশের ঘর" loading="lazy" width="540" height="675">
+<div class="meta"><div class="top"><span class="num">07</span><span class="tc">01:06–01:12</span></div><h3>পাশের ঘর</h3>
+<p class="vo">আপা তখন পাশের ঘরে… চাদর ধুইতেছে। আম্মা একবারও আপার নাম নিত না।</p>
+<dl><dt>ভিজ্যুয়াল</dt><dd>ক্যামেরা পাশের ঘরে প্যান করে; গর্বের গল্প ঝাপসা হয়ে যায়। টিল রঙে পানির ঢেউ। ‘আপার নাম’ লেখাটা লিখতে লিখতে মুছে যায়।</dd><dt>ট্রানজিশন</dt><dd>হরাইজন্টাল প্যান</dd><dt>সাউন্ড</dt><dd>শব্দ হঠাৎ মাফল্ড, পানির ছলাৎ</dd></dl></div></article>
+<article class="scene"><img src="img/s08.jpg" alt="সিন 8: দাঁড়িপাল্লা" loading="lazy" width="540" height="675">
+<div class="meta"><div class="top"><span class="num">08</span><span class="tc">01:12–01:24</span></div><h3>দাঁড়িপাল্লা</h3>
+<p class="vo">ছেলের টাকা অধিকার, মেয়ের ঘাম লজ্জা… গোপন বনাম মাইকে প্রচার।</p>
+<dl><dt>ভিজ্যুয়াল</dt><dd>‘=’ চিহ্ন থেকে দাঁড়িপাল্লা তৈরি হয় (হুকের সাথে ভিজ্যুয়াল রাইম)। অ্যাম্বার পাশ উঠে যায় ‘অধিকার’, টিল পাশ ডুবে যায় ‘লজ্জা’।</dd><dt>ট্রানজিশন</dt><dd>মরফ ট্রানজিশন</dd><dt>সাউন্ড</dt><dd>কাঠের ক্রিক, দুই ভারি থাড</dd></dl></div></article>
+<article class="scene"><img src="img/s09.jpg" alt="সিন 9: স্টেটমেন্ট" loading="lazy" width="540" height="675">
+<div class="meta"><div class="top"><span class="num">09</span><span class="tc">01:24–01:27</span></div><h3>স্টেটমেন্ট</h3>
+<p class="vo">এইটা ভালোবাসা না। এইটা সামাজিক ইজ্জতের হিসাব।</p>
+<dl><dt>ভিজ্যুয়াল</dt><dd>খাতার রুলড লাইন ব্যাকগ্রাউন্ডে; ‘ভালোবাসা’ কেটে দেওয়া হয়, ‘ইজ্জতের হিসাব’ বড় হয়ে বসে।</dd><dt>ট্রানজিশন</dt><dd>হার্ড কাট</dd><dt>সাউন্ড</dt><dd>পেন স্ক্র্যাচ, সাব হিট</dd></dl></div></article>
+<article class="scene"><img src="img/s10.jpg" alt="সিন 10: দলিল" loading="lazy" width="540" height="675">
+<div class="meta"><div class="top"><span class="num">10</span><span class="tc">01:27–01:40</span></div><h3>দলিল</h3>
+<p class="vo">ডাক্তার কইয়া দিল, সময় কম… তিন তলা বাড়িটা আমার নামে।</p>
+<dl><dt>ভিজ্যুয়াল</dt><dd>বালিঘড়ি দ্রুত শেষ হয়। তারপর লাইন-আর্ট বাড়ি এক তলা এক তলা করে তৈরি হয় (১→২→৩), ছাদে ‘আমার নামে’ লেবেল।</dd><dt>ট্রানজিশন</dt><dd>আইরিস ক্লোজ → ওপেন</dd><dt>সাউন্ড</dt><dd>বালির ঝরঝর, প্রতিটা তলায় ব্লক-থাড</dd></dl></div></article>
+<article class="scene"><img src="img/s11.jpg" alt="সিন 11: বংশের বাতি" loading="lazy" width="540" height="675">
+<div class="meta"><div class="top"><span class="num">11</span><span class="tc">01:40–02:04</span></div><h3>বংশের বাতি</h3>
+<p class="vo">“আপারে কিছু দিবেন না?” … “তুই আমার বংশের বাতি।”</p>
+<dl><dt>ভিজ্যুয়াল</dt><dd>নিচের তলা টিল রঙে হাইলাইট হয় (আপার জন্য), তারপর নিভে যায়। একটা প্রদীপ জ্বলে ওঠে; ‘বংশের বাতি’ অ্যাম্বার গ্লো। ‘পরের বংশে যাবে’ লাইনে ফ্যামিলি-ট্রির একটা ডাল কেটে যায়।</dd><dt>ট্রানজিশন</dt><dd>লাইট-লিক</dd><dt>সাউন্ড</dt><dd>ম্যাচ জ্বালানোর শব্দ, শিখার হাওয়া, ডাল ভাঙার স্ন্যাপ</dd></dl></div></article>
+<article class="scene key"><img src="img/s12.jpg" alt="সিন 12: থেমে যাওয়া — মেইন মোমেন্ট" loading="lazy" width="540" height="675">
+<div class="meta"><div class="top"><span class="num">12</span><span class="tc">02:04–02:19</span></div><h3>থেমে যাওয়া — মেইন মোমেন্ট</h3>
+<p class="vo">আপা ঘরে ঢুকল… ওর হাতটা এক সেকেন্ডের জন্য থামল।</p>
+<dl><dt>ভিজ্যুয়াল</dt><dd>গরম পানির গামলা থেকে ধোঁয়া ওঠে। ‘থামল’ শব্দে পুরো ফ্রেম জমে যায়: ধোঁয়া থেমে যায়, রং ধূসর হয়ে আসে, ব্র্যান্ড ছাড়া সব আটকে থাকে। একদম ১ সেকেন্ড, তারপর আবার চলতে শুরু।</dd><dt>ট্রানজিশন</dt><dd>টাইম-ফ্রিজ</dd><dt>সাউন্ড</dt><dd>সব শব্দ কেটে যায় → ১ সেকেন্ড নীরবতা → হালকা টোন ফিরে আসে</dd></dl></div></article>
+<article class="scene"><img src="img/s13.jpg" alt="সিন 13: আচার" loading="lazy" width="540" height="675">
+<div class="meta"><div class="top"><span class="num">13</span><span class="tc">02:19–02:33</span></div><h3>আচার</h3>
+<p class="vo">“…জলপাইয়ের আচার বয়ামে ভইরা রাখছি, নিতে ভুলিস না।”</p>
+<dl><dt>ভিজ্যুয়াল</dt><dd>উষ্ণ আলো। আচারের বয়াম লাইন-ড্র হয়, ঢাকনা লাল। আপার কথা নরম কোট-টাইপে, শব্দ ধরে ধরে ফেড-ইন।</dd><dt>ট্রানজিশন</dt><dd>ক্রস-ডিজলভ</dd><dt>সাউন্ড</dt><dd>নরম পিয়ানো, বয়ামের কাচের মৃদু টুং</dd></dl></div></article>
+<article class="scene"><img src="img/s14.jpg" alt="সিন 14: সই" loading="lazy" width="540" height="675">
+<div class="meta"><div class="top"><span class="num">14</span><span class="tc">02:33–02:50</span></div><h3>সই</h3>
+<p class="vo">চাইলে দাঁড়ায়া যাইতে পারতাম… আমি বলি নাই। মাথা নিচু কইরা সই কইরা দিছি।</p>
+<dl><dt>ভিজ্যুয়াল</dt><dd>দুইটা পথ ভাগ হয় (দাঁড়ানো / সই)। ‘আমি বলি নাই’ বড় হয়ে স্ল্যাম। কলম দিয়ে সইয়ের রেখা নিজে নিজে আঁকা হয়।</dd><dt>ট্রানজিশন</dt><dd>স্প্লিট-পাথ → জুম</dd><dt>সাউন্ড</dt><dd>নীরবতা, কলমের খসখস, ভারি থাড</dd></dl></div></article>
+<article class="scene"><img src="img/s15.jpg" alt="সিন 15: লোভ" loading="lazy" width="540" height="675">
+<div class="meta"><div class="top"><span class="num">15</span><span class="tc">02:50–02:58</span></div><h3>লোভ</h3>
+<p class="vo">আমার ভেতরে লোভ ছিল। তিন তলা বাড়ির লোভ।</p>
+<dl><dt>ভিজ্যুয়াল</dt><dd>পুরো স্ক্রিন জুড়ে ‘লোভ’ রাস্ট রঙে, হালকা পালস। পেছনে বাড়ির আউটলাইন সোনালি গ্লো।</dd><dt>ট্রানজিশন</dt><dd>জুম-পাঞ্চ</dd><dt>সাউন্ড</dt><dd>হার্টবিট, লো রাইজার → হিট</dd></dl></div></article>
+<article class="scene"><img src="img/s16.jpg" alt="সিন 16: দায়িত্ব বনাম গর্ব" loading="lazy" width="540" height="675">
+<div class="meta"><div class="top"><span class="num">16</span><span class="tc">02:58–03:23</span></div><h3>দায়িত্ব বনাম গর্ব</h3>
+<p class="vo">বাবা-মাও মানুষ… পা ধোয়ায় তারে “দায়িত্ব”, টাকা ছুড়ে দেয় তারে “গর্ব”… পকেটে ভইরা নিই।</p>
+<dl><dt>ভিজ্যুয়াল</dt><dd>‘নিঃস্বার্থ’ শব্দে কাটা দাগ। স্প্লিট স্ক্রিন: টিল ‘দায়িত্ব’ বনাম অ্যাম্বার ‘গর্ব’। শেষে ‘বাবা-মায়ের ইচ্ছা’ লেবেলটা নিচে একটা পকেটে ঢুকে যায়।</dd><dt>ট্রানজিশন</dt><dd>ভার্টিকাল স্প্লিট</dd><dt>সাউন্ড</dt><dd>হুশ, কাগজ ভাঁজের শব্দ</dd></dl></div></article>
+<article class="scene"><img src="img/s17.jpg" alt="সিন 17: চোখ" loading="lazy" width="540" height="675">
+<div class="meta"><div class="top"><span class="num">17</span><span class="tc">03:23–03:36</span></div><h3>চোখ</h3>
+<p class="vo">বাসে ওঠার সময়… ওর চোখে কোনো রাগ ছিল না… রাগের চেয়েও ভয়ংকর।</p>
+<dl><dt>ভিজ্যুয়াল</dt><dd>বাসের জানালার মতো ফ্রেম পাশে সরে যায়। তারপর একটা চোখের লাইন-আর্ট ধীরে খোলে; ‘ভয়ংকর’ শব্দে মণি ছোট হয়ে যায়।</dd><dt>ট্রানজিশন</dt><dd>উইন্ডো-স্লাইড</dd><dt>সাউন্ড</dt><dd>বাসের ইঞ্জিন, হর্ন দূরে মিলিয়ে যায়, টেনশন ড্রোন</dd></dl></div></article>
+<article class="scene"><img src="img/s18.jpg" alt="সিন 18: বিনা বেতনের নার্স + এন্ড কার্ড" loading="lazy" width="540" height="675">
+<div class="meta"><div class="top"><span class="num">18</span><span class="tc">03:36–03:46</span></div><h3>বিনা বেতনের নার্স + এন্ড কার্ড</h3>
+<p class="vo">ওর জায়গাটা একজন বিনা বেতনের নার্সের… একটা ধন্যবাদও পাওনা থাকে না।</p>
+<dl><dt>ভিজ্যুয়াল</dt><dd>ডিউটি-রোস্টার ব্যাজ তৈরি হয়: ‘বিনা বেতনের নার্স’, ‘ধন্যবাদ: ০’। ফেড টু ব্ল্যাক → ‘The Unsaid’ বড় করে, নিচে ‘যা কেউ বলে না’।</dd><dt>ট্রানজিশন</dt><dd>ফেড টু ব্ল্যাক</dd><dt>সাউন্ড</dt><dd>পিয়ানোর শেষ নোট, লম্বা রিভার্ব টেল</dd></dl></div></article>
+
+
+<section class="ask">
+  <h2>অনুমোদনের আগে দেখে নিন</h2>
+  <ol>
+    <li>সিন ১২ (আপার হাত থেমে যাওয়া) হবে ভিডিওর মূল মুহূর্ত: পুরো ফ্রেম আর সব শব্দ ঠিক ১ সেকেন্ড থেমে থাকবে।</li>
+    <li>ছবি বা ফুটেজ থাকবে না; সবকিছু লাইন-আর্ট আইকন আর টাইপোগ্রাফি দিয়ে। বাস্তব ছবি বা ইলাস্ট্রেশন লাগলে জানান।</li>
+    <li>বিকাশের লোগো ব্যবহার হবে না, শুধু “বিকাশে ৳২০,০০০” লেখা থাকবে।</li>
+    <li>রং, ফন্ট, কোনো সিনের আইডিয়া বা ট্রানজিশন বদলাতে চাইলে সিন নম্বর ধরে বলুন।</li>
+  </ol>
+</section>
+</div>
