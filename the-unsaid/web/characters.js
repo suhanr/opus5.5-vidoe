@@ -45,7 +45,8 @@
       droop: [eye(L, 'lid'), eye(R), brow(L, -3), brow(R, -4), `<path d="M${cx - 12} ${my + 5} q6 -5 12 -4 q8 0 12 -3" stroke="${INK}" stroke-width="3.4" fill="none" stroke-linecap="round"/>`],
       droopStern: [eye(L, 'lid'), eye(R), brow(L, -8), brow(R, -6), `<path d="M${cx - 13} ${my + 5} q6 -4 13 -4 h12" stroke="${INK}" stroke-width="3.8" fill="none" stroke-linecap="round"/>`]
     };
-    e.push(`<g class="face">${(map[expr] || map.neutral).join('')}</g>`);
+    const arr = map[expr] || map.neutral;
+    e.push(`<g class="face"><g class="eyes">${arr[0]}${arr[1]}</g>${arr.slice(2).join('')}</g>`);
     // nose (shadow wedge)
     e.push(`<path d="M${cx + 2} ${cy + 8} l7 15 h-11" fill="${skinS}"/>`);
     if (o.underEye) e.push(`<path d="M${L - 8} ${ey + 10} q8 5 16 0 M${R - 8} ${ey + 10} q8 5 16 0" stroke="${skinS}" stroke-width="3" fill="none" stroke-linecap="round"/>`);
