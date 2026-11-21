@@ -1,0 +1,55 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:H;src:url(../assets/fonts/Sangbadpatra.ttf)}
+@font-face{font-family:B;src:url(../assets/fonts/Tatsama.ttf)}
+@font-face{font-family:Q;src:url(../assets/fonts/Nakkhatra.ttf)}
+@font-face{font-family:Fr;src:url(../assets/fonts/Fraunces.ttf);font-weight:100 900}
+body{margin:0;background:#000}
+.t{width:1080px;height:1350px;position:relative;overflow:hidden;color:#F2EBDD;font-family:H}
+.abs{position:absolute}
+.brand{position:absolute;left:52px;top:46px;display:flex;align-items:center;gap:14px;font:italic 500 40px Fr;z-index:9;text-shadow:0 2px 10px rgba(0,0,0,.8)}
+.brand i{width:13px;height:13px;border-radius:50%;background:#E8A33D;box-shadow:0 0 18px #E8A33D}
+.grain{position:absolute;inset:0;opacity:.08;mix-blend-mode:overlay;z-index:8}
+.vig{position:absolute;inset:0;background:radial-gradient(closest-side at 50% 45%,transparent 55%,rgba(0,0,0,.7))}
+.am{color:#FFBE55}.te{color:#8FF0DF}.ru{color:#F0603C}
+.big{color:#FFF8EC;text-shadow:0 6px 0 #05070B,0 0 40px rgba(0,0,0,.9)}
+svg{overflow:visible}
+</style></head><body>
+
+<!-- A: the sister silenced by the tablecloth, masked family behind -->
+<div class="t" id="A" style="background:radial-gradient(70% 60% at 50% 40%,#232838,#0A0C12)">
+  <div id="masksA"></div>
+  <svg id="sisA" class="abs" viewBox="0 0 400 760" width="1500" height="2850" style="left:-210px;top:-60px"></svg>
+  <svg class="abs" width="1080" height="1350" style="left:0;top:0"><defs><linearGradient id="cg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4EFE6"/><stop offset=".4" stop-color="#CFC6B6"/><stop offset="1" stop-color="#3A362F"/></linearGradient></defs>
+    <path d="M-20 650 Q540 555 1100 650 L1100 1360 L-20 1360Z" fill="url(#cg)"/><path d="M-20 685 Q540 592 1100 685" stroke="#E5B34F" stroke-width="5" fill="none" opacity=".7"/>
+    <ellipse cx="330" cy="900" rx="120" ry="34" fill="#C9543A" opacity=".28"/><ellipse cx="760" cy="960" rx="140" ry="36" fill="#C9543A" opacity=".22"/></svg>
+  <div class="vig"></div>
+  <div class="abs" style="left:64px;top:150px;padding:12px 34px 22px;background:#F0603C;color:#0A0D14;font-size:84px;transform:rotate(-4deg);box-shadow:0 12px 40px rgba(0,0,0,.6);font-family:Q">“চুপ কর!”</div>
+  <div class="abs" style="left:0;right:0;top:850px;text-align:center;font-family:B;font-size:50px;color:#2A2420">মেহমানের রুচি যেন নষ্ট না হয়…</div>
+  <div class="abs big" style="left:0;right:0;bottom:70px;text-align:center;font-size:132px;line-height:1.05">টেবিলক্লথের <span class="ru" style="text-shadow:0 6px 0 #05070B,0 0 50px rgba(240,96,60,.7)">নিচে</span></div>
+  <div class="grain"></div><div class="brand"><i></i>The Unsaid</div>
+</div>
+
+<!-- B: the son, half face / half smiling mask -->
+<div class="t" id="B" style="background:radial-gradient(70% 60% at 50% 38%,#2A2218,#0A0B10)">
+  <div class="abs" style="left:540px;top:0;width:540px;height:1350px;background:radial-gradient(70% 50% at 20% 35%,rgba(255,190,85,.25),transparent 70%)"></div>
+  <svg id="sonA" class="abs" viewBox="0 0 400 760" width="1700" height="3230" style="left:-310px;top:-80px"></svg>
+  <svg id="sonB" class="abs" viewBox="0 0 400 760" width="1700" height="3230" style="left:-310px;top:-80px;clip-path:inset(0 0 0 850px)"></svg>
+  <div class="abs" style="left:537px;top:0;width:6px;height:1350px;background:#F0603C;box-shadow:0 0 30px #F0603C"></div>
+  <div class="abs" style="left:0;right:0;bottom:0;height:560px;background:linear-gradient(0deg,rgba(6,8,12,.97) 45%,transparent)"></div>
+  <div class="vig"></div>
+  <div class="abs" style="left:0;right:0;top:860px;text-align:center;font-family:B;font-size:50px;color:#C9CDD6">চোখের সামনে অন্যায়, তবু মুখে হাসি</div>
+  <div class="abs big" style="left:0;right:0;bottom:80px;text-align:center;font-size:150px;line-height:1">“<span class="am" style="text-shadow:0 6px 0 #05070B,0 0 50px rgba(255,190,85,.6)">ভদ্র</span>” ছেলে</div>
+  <div class="grain"></div><div class="brand"><i></i>The Unsaid</div>
+</div>
+<script src="../web/characters.js"></script><script src="../web/characters2.js"></script>
+<script>
+const K=CHAR;
+document.getElementById('sisA').innerHTML=K.bon('glance','idle');
+let m='';[[150,K.amma('smile','idle')],[330,K.abba2('smile')],[750,K.son('smile','idle')],[930,K.chacha('sweet')]].forEach(([x,s])=>{m+=`<svg class="abs" viewBox="0 0 400 760" width="300" height="570" style="left:${x-150}px;top:260px;filter:brightness(.45) blur(1.5px)">${s}${K.mask(1)}</svg>`});
+document.getElementById('masksA').innerHTML=m;
+document.getElementById('sonA').innerHTML=K.son('guilt','idle').replace('<g id="head" transform="rotate(10 200 200)"','<g id="head"');
+document.getElementById('sonB').innerHTML=K.son('smile','idle')+K.mask(1);
+const c=document.createElement('canvas');c.width=c.height=256;const g=c.getContext('2d'),d=g.createImageData(256,256);
+for(let i=0;i<d.data.length;i+=4){const v=Math.random()*255;d.data[i]=d.data[i+1]=d.data[i+2]=v;d.data[i+3]=255}
+g.putImageData(d,0,0);document.querySelectorAll('.grain').forEach(e=>e.style.backgroundImage=`url(${c.toDataURL()})`);
+</script></body></html>
