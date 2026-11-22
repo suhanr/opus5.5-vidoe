@@ -1,0 +1,51 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:H;src:url(../assets/fonts/Kathakali.ttf)}
+@font-face{font-family:B;src:url(../assets/fonts/Jolchobi.ttf)}
+@font-face{font-family:Q;src:url(../assets/fonts/Oishee.ttf)}
+@font-face{font-family:Fr;src:url(../assets/fonts/Fraunces.ttf);font-weight:100 900}
+body{margin:0;background:#000}
+.t{width:1080px;height:1350px;position:relative;overflow:hidden;color:#F2EBDD;font-family:H}
+.abs{position:absolute}
+.brand{position:absolute;left:52px;top:46px;display:flex;align-items:center;gap:14px;font:italic 500 40px Fr;z-index:9;text-shadow:0 2px 10px rgba(0,0,0,.8)}
+.brand i{width:13px;height:13px;border-radius:50%;background:#E8A33D;box-shadow:0 0 18px #E8A33D}
+.grain{position:absolute;inset:0;opacity:.08;mix-blend-mode:overlay;z-index:8}
+.vig{position:absolute;inset:0;background:radial-gradient(closest-side at 50% 45%,transparent 55%,rgba(0,0,0,.7))}
+.am{color:#FFBE55}.te{color:#8FF0DF}.ru{color:#F0603C}
+.big{color:#FFF8EC;text-shadow:0 6px 0 #05070B,0 0 40px rgba(0,0,0,.9)}
+svg{overflow:visible}
+</style></head><body>
+
+<!-- A: three plates, amma's tail -->
+<div class="t" id="A" style="background:radial-gradient(70% 55% at 50% 35%,#2E261A,#0A0B10)">
+  <svg id="ammaA" class="abs" viewBox="0 0 400 760" width="1100" height="2090" style="left:-10px;top:120px"></svg>
+  <div class="abs" style="left:0;right:0;bottom:0;height:700px;background:linear-gradient(0deg,rgba(6,8,12,1) 55%,transparent)"></div>
+  <div class="vig"></div>
+  <svg id="platesA" class="abs" width="1080" height="1350" style="left:0;top:0"></svg>
+  <div class="abs" style="left:64px;top:150px;padding:10px 32px 22px;background:#F0603C;color:#0A0D14;font-size:66px;transform:rotate(-4deg);box-shadow:0 12px 40px rgba(0,0,0,.6);font-family:Q">“আমার লেজই ভালো লাগে”</div>
+  <div class="abs big" style="left:0;right:0;bottom:70px;text-align:center;font-size:118px;line-height:1.1">২৫ বছরের <span class="ru" style="text-shadow:0 6px 0 #05070B,0 0 50px rgba(240,96,60,.7)">অভিনয়</span></div>
+  <div class="grain"></div><div class="brand"><i></i>The Unsaid</div>
+</div>
+
+<!-- B: the 5-second quiz -->
+<div class="t" id="B" style="background:radial-gradient(70% 55% at 50% 30%,#1D2536,#08090E)">
+  <svg id="ammaB" class="abs" viewBox="0 0 400 760" width="1250" height="2375" style="left:240px;top:280px"></svg>
+  <div class="abs" style="left:0;top:0;width:700px;height:1350px;background:linear-gradient(90deg,rgba(8,9,14,.95) 55%,transparent)"></div>
+  <div class="abs" style="left:0;right:0;bottom:0;height:420px;background:linear-gradient(0deg,rgba(6,8,12,1) 45%,transparent)"></div>
+  <svg class="abs" width="300" height="300" style="left:60px;top:150px"><circle cx="150" cy="150" r="120" fill="rgba(10,13,20,.7)" stroke="#2A3247" stroke-width="16"/><path d="M150 30 A120 120 0 1 1 46 210" fill="none" stroke="#F0603C" stroke-width="16" stroke-linecap="round"/><text x="150" y="200" font-family="H" font-size="150" text-anchor="middle" fill="#FFF8EC">৫</text></svg>
+  <div class="abs" style="left:60px;top:500px;width:560px">
+    <div style="padding:20px 30px 26px;border:3px solid #3A4258;border-radius:18px;background:rgba(242,235,221,.06)"><div style="font-family:B;font-size:40px;color:#C9CDD6">মায়ের প্রিয় খাবার</div><div style="display:flex;gap:10px;align-items:center;margin-top:12px"><div style="flex:1;border-bottom:5px dashed #8D93A3;height:50px"></div><div style="width:5px;height:56px;background:#8FF0DF"></div></div></div>
+    <div style="margin-top:22px;padding:20px 30px 26px;border:3px solid #3A4258;border-radius:18px;background:rgba(242,235,221,.06)"><div style="font-family:B;font-size:40px;color:#C9CDD6">মা হওয়ার আগে কী হইতে চাইছিলেন</div><div style="border-bottom:5px dashed #8D93A3;height:50px;margin-top:12px"></div></div></div>
+  <div class="abs big" style="left:0;right:0;bottom:70px;text-align:center;font-size:104px;line-height:1.1">বলতে <span class="ru" style="text-shadow:0 6px 0 #05070B,0 0 50px rgba(240,96,60,.7)">পারবেন</span>?</div>
+  <div class="grain"></div><div class="brand" style="left:auto;right:52px"><i></i>The Unsaid</div>
+</div>
+<script src="../web/characters.js"></script><script src="../web/characters2.js"></script><script src="../web/characters3.js"></script>
+<script>
+const K=CHAR;
+document.getElementById('ammaA').innerHTML=K.amma('smile','idle');
+const plate=(x,y,k,lbl,col,g)=>`<g transform="translate(${x} ${y})"><ellipse rx="150" ry="40" fill="#EDE6DA"/><ellipse rx="115" ry="28" fill="#F7F2EA"/>${g?`<ellipse rx="160" ry="54" fill="${col}" opacity=".22"/>`:''}<g transform="translate(0 -16) scale(1.35)">${K.piece(k)}</g><text y="96" font-family="H" font-size="54" text-anchor="middle" fill="${col}">${lbl}</text></g>`;
+document.getElementById('platesA').innerHTML=plate(190,1000,'head','আব্বা','#F2EBDD')+plate(540,1000,'belly','আমরা','#FFBE55',1)+plate(890,1000,'tail','আম্মা','#8FF0DF',1)+`<circle cx="890" cy="990" r="170" fill="none" stroke="#F0603C" stroke-width="7" stroke-dasharray="20 12"/>`;
+document.getElementById('ammaB').innerHTML=K.ammaFlush('neutral',.75,'idle');
+const c=document.createElement('canvas');c.width=c.height=256;const g=c.getContext('2d'),d=g.createImageData(256,256);
+for(let i=0;i<d.data.length;i+=4){const v=Math.random()*255;d.data[i]=d.data[i+1]=d.data[i+2]=v;d.data[i+3]=255}
+g.putImageData(d,0,0);document.querySelectorAll('.grain').forEach(e=>e.style.backgroundImage=`url(${c.toDataURL()})`);
+</script></body></html>
