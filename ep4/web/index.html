@@ -1,0 +1,37 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>The Unsaid — EP4</title>
+<style>
+@font-face{font-family:H;src:url(../assets/fonts/Shishir.ttf)}
+@font-face{font-family:B;src:url(../assets/fonts/Nilabhro.ttf)}
+@font-face{font-family:Q;src:url(../assets/fonts/Subas.ttf)}
+@font-face{font-family:N;src:url(../assets/fonts/Himadri.ttf)}
+@font-face{font-family:Fr;src:url(../assets/fonts/Fraunces.ttf);font-weight:100 900}
+html,body{margin:0;background:#000;overflow:hidden}
+#stage{position:relative;width:1080px;height:1350px;overflow:hidden;background:#FFD23F;color:#141414;font-family:B}
+#bg,#fx,#grain,#vig,#brand,#layers{position:absolute;inset:0}
+#layers>.layer{position:absolute;inset:0;transform-origin:50% 50%}
+.abs{position:absolute}
+.blk{position:absolute;left:0;right:0;text-align:center;padding:0 70px}
+.H{font-family:H;line-height:1.15}.B{font-family:B;line-height:1.3}.Q{font-family:Q;line-height:1.35}.N{font-family:N;line-height:1.5}
+.w{display:inline-block;white-space:pre;will-change:transform}
+/* poster palette */
+.k{color:#141414}.wt{color:#FFFFFF}
+.stk{color:#fff;-webkit-text-stroke:12px #141414;paint-order:stroke fill;text-shadow:7px 8px 0 #141414}
+.stkY{color:#FFD23F;-webkit-text-stroke:12px #141414;paint-order:stroke fill;text-shadow:7px 8px 0 #141414}
+.stkR{color:#FF4B3E;-webkit-text-stroke:12px #141414;paint-order:stroke fill;text-shadow:7px 8px 0 #141414}
+.mkY{background:#FFD23F;color:#141414;padding:0 .14em;border-radius:6px;box-shadow:5px 5px 0 #141414}
+.mkR{background:#FF4B3E;color:#fff;padding:0 .14em;border-radius:6px;box-shadow:5px 5px 0 #141414}
+.mkB{background:#2F5BFF;color:#fff;padding:0 .14em;border-radius:6px;box-shadow:5px 5px 0 #141414}
+.mkK{background:#141414;color:#FFD23F;padding:0 .14em;border-radius:6px}
+.mkW{background:#fff;color:#141414;padding:0 .14em;border-radius:6px;box-shadow:5px 5px 0 #141414}
+.rd{color:#FF4B3E}.yl{color:#FFD23F}.bl{color:#2F5BFF}.gr{color:#6B6B6B}
+svg{overflow:visible}
+#grain{opacity:.045;mix-blend-mode:multiply;pointer-events:none}
+#vig{background:radial-gradient(closest-side at 50% 50%,transparent 70%,rgba(0,0,0,.22));pointer-events:none}
+#brand{pointer-events:none}
+.warm{position:absolute;opacity:0}
+</style></head>
+<body><div id="stage"><canvas id="bg" width="1080" height="1350"></canvas><div id="layers"></div><canvas id="fx" width="1080" height="1350"></canvas><div id="grain"></div><div id="vig"></div><div id="brand"></div></div>
+<span class="warm" style="font-family:H">ক</span><span class="warm" style="font-family:B">ক</span><span class="warm" style="font-family:Q">ক</span><span class="warm" style="font-family:N">ক</span><span class="warm" style="font-family:Fr">a</span>
+<script src="timeline.js"></script><script src="characters.js"></script><script src="characters2.js"></script><script src="characters3.js"></script><script src="engine.js"></script><script src="scenes.js"></script>
+</body></html>
